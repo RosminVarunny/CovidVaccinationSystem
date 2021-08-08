@@ -1,0 +1,60 @@
+﻿@model CovidVaccinationSystem.Models.Vaccine_History
+
+@{
+    ViewData["Title"] = "VaccinationAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>VaccinationAdd</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="VaccinationAdd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pat_Name" class="control-label"></label>
+                <input asp-for="Pat_Name" class="form-control" />
+                <span asp-validation-for="Pat_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vacc_Name" class="control-label"></label>
+                <input asp-for="Vacc_Name" class="form-control" />
+                <span asp-validation-for="Vacc_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vacc_1_ScheduleDate" class="control-label"></label>
+                <input asp-for="Vacc_1_ScheduleDate" class="form-control" />
+                <span asp-validation-for="Vacc_1_ScheduleDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vacc_1_LotNo" class="control-label"></label>
+                <input asp-for="Vacc_1_LotNo" class="form-control" />
+                <span asp-validation-for="Vacc_1_LotNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vacc_2_ScheduleDate" class="control-label"></label>
+                <input asp-for="Vacc_2_ScheduleDate" class="form-control" />
+                <span asp-validation-for="Vacc_2_ScheduleDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vacc_2_LotNo" class="control-label"></label>
+                <input asp-for="Vacc_2_LotNo" class="form-control" />
+                <span asp-validation-for="Vacc_2_LotNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Pat_Id" />
+                <input type="hidden" asp-for="Vacc_Id" />
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="VaccinationHistory">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

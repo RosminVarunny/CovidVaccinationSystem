@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CovidVaccinationSystem.Models.Vaccine_History>
+
+@{
+    ViewData["Title"] = "VaccinationHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>VaccinationHistory</h1>
+
+<p>
+    <a asp-action="PatientList">Patient LIst</a>
+    <a asp-action="VaccinationAdd">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacc_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacc_1_ScheduleDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacc_1_LotNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacc_2_ScheduleDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacc_2_LotNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacc_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacc_1_ScheduleDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacc_1_LotNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacc_2_ScheduleDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacc_2_LotNo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "VaccinationAdd", new { Pat_Id = item.Pat_Id, Vacc_Id = item.Vacc_Id })
+                |@Html.ActionLink("Details", "VaccinationDetails", new { Pat_Id = item.Pat_Id, Vacc_Id = item.Vacc_Id })
+                |
+                @Html.ActionLink("Delete", "Delete", new { Pat_Id = item.Pat_Id, Vacc_Id = item.Vacc_Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,104 @@
+﻿@model CovidVaccinationSystem.Models.Patient_Master
+
+@{
+    ViewData["Title"] = "PatientAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PatientAdd</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PatientAdd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pat_Name" class="control-label"></label>
+                <input asp-for="Pat_Name" class="form-control" />
+                <span asp-validation-for="Pat_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Age" class="control-label"></label>
+                <input asp-for="Pat_Age" class="form-control" />
+                <span asp-validation-for="Pat_Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Gender" class="control-label"></label>
+                <input asp-for="Pat_Gender" class="form-control" />
+                <span asp-validation-for="Pat_Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Occupation" class="control-label"></label>
+                <input asp-for="Pat_Occupation" class="form-control" />
+                <span asp-validation-for="Pat_Occupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_DOB" class="control-label"></label>
+                <input asp-for="Pat_DOB" class="form-control" />
+                <span asp-validation-for="Pat_DOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Vaccine_Status" class="control-label"></label>
+                <input asp-for="Pat_Vaccine_Status" class="form-control" />
+                <span asp-validation-for="Pat_Vaccine_Status" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pat_IsAllergic" /> @Html.DisplayNameFor(model => model.Pat_IsAllergic)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Allergies" class="control-label"></label>
+                <input asp-for="Pat_Allergies" class="form-control" />
+                <span asp-validation-for="Pat_Allergies" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pat_IsPregnant" /> @Html.DisplayNameFor(model => model.Pat_IsPregnant)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pat_IsFeedingMother" /> @Html.DisplayNameFor(model => model.Pat_IsFeedingMother)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Diseases" class="control-label"></label>
+                <input asp-for="Pat_Diseases" class="form-control" />
+                <span asp-validation-for="Pat_Diseases" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pat_IsEligiable" /> @Html.DisplayNameFor(model => model.Pat_IsEligiable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Mobile" class="control-label"></label>
+                <input asp-for="Pat_Mobile" class="form-control" />
+                <span asp-validation-for="Pat_Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_Email" class="control-label"></label>
+                <input asp-for="Pat_Email" class="form-control" />
+                <span asp-validation-for="Pat_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pat_MedicineTaking" class="control-label"></label>
+                <input asp-for="Pat_MedicineTaking" class="form-control" />
+                <span asp-validation-for="Pat_MedicineTaking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Pat_Id" /> 
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PatientList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

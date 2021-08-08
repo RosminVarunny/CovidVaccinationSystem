@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CovidVaccinationSystem.Models.Patient_Master>
+
+@{
+    ViewData["Title"] = "PatientList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PatientList</h1>
+
+<p>
+    <a asp-action="PatientAdd">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_Vaccine_Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pat_IsEligiable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_Vaccine_Status)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat_IsEligiable)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "PatientDetails", new { Pat_Id = item.Pat_Id })
+                |@Html.ActionLink("Vaccine History", "VaccinationDetails", new { Pat_Id = item.Pat_Id })
+                @Html.ActionLink("Delete", "Delete", new { Pat_Id = item.Pat_Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
